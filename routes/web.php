@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\brandController;
+use App\Http\Controllers\productController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,5 +33,8 @@ Route::middleware([
     Route::get('/admin/brand/edit/{id}',[brandController::class,'edit'])->name('brand.edit');
     Route::post('/admin/brand/update/{id}',[brandController::class,'update'])->name('brand.update');
     Route::post('/admin/brand/destroy/{id}',[brandController::class,'destroy'])->name('brand.destroy');
+
+//product
+    Route::get('/admin/product/',[productController::class,'index'])->name('product');
 
 });
