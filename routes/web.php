@@ -5,15 +5,15 @@ use App\Http\Controllers\categoryController;
 use App\Http\Controllers\brandController;
 use App\Http\Controllers\productController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
+
+    Route::get('/', function () {
+        return view('dashboard');
+    });
 
     Route::get('/dashboard', function () {
         return view('dashboard');})->name('dashboard');
