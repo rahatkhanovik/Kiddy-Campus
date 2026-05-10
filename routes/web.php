@@ -36,5 +36,10 @@ Route::middleware([
 
 //product
     Route::get('/admin/product/',[productController::class,'index'])->name('product');
+    Route::get('/admin/product/create',[productController::class,'create'])->name('product.create');
+    Route::post('/admin/product/store',[productController::class,'store'])->name('product.store');
+    Route::get('/admin/product/edit/{id}',[productController::class,'edit'])->name('product.edit');
+    Route::post('/admin/product/update/{id}',[productController::class,'update'])->name('product.update');
+    Route::post('/admin/product/destroy/{id}',[productController::class,'destroy'])->name('product.destroy');
 
 });
