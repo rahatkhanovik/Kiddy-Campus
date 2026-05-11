@@ -185,7 +185,7 @@
                     <li>
                         <a href="{{route('product')}}">
                             <i class="bx bxl-product-hunt"></i>
-                            <span>Products</span>
+                            <span>Product</span>
                         </a>
                     </li>
 

@@ -41,5 +41,4 @@ Route::middleware([
     Route::get('/admin/product/edit/{id}',[productController::class,'edit'])->name('product.edit');
     Route::post('/admin/product/update/{id}',[productController::class,'update'])->name('product.update');
     Route::post('/admin/product/destroy/{id}',[productController::class,'destroy'])->name('product.destroy');
-
 });

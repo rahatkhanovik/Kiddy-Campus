@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class productController extends Controller
@@ -11,7 +12,8 @@ class productController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::all();
+        return view('admin.product.index',compact('products'));
     }
 
     /**
@@ -19,7 +21,7 @@ class productController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.product.create');
     }
 
     /**
@@ -27,7 +29,8 @@ class productController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Product::storeProduct($request);
+        return redirect('/admin/product/')->with('store_message','A new product has been inserted!!');
     }
 
     /**
@@ -43,7 +46,8 @@ class productController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $products = Product::findOrfail($id);
+        return view('admin.product.edit',compact('products'));
     }
 
     /**
@@ -51,7 +55,8 @@ class productController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        Product::updateProduct($request, $id);
+        return redirect('/admin/product/')->with('update_message','A product has been updated!!');
     }
 
     /**
@@ -59,6 +64,7 @@ class productController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Product::destroyProduct($id);
+        return redirect('/admin/product/')->with('delete_message','A product has been deleted!!');
     }
 }
